@@ -24,6 +24,7 @@ Si vous souhaitez approfondir, je vous recommande vivement la lecture du livre s
 
 ### Kata \#1 GildedRose - par Terry Hughes et adapté par [Emily Bache](https://github.com/emilybache)
 
+
 Dans ce Kata, vous allez:  
 ✅ Comprendre l'importance des **tests unitaires** pour le *refactoring*  
 ✅ Découvrir les [**ApprovalTests**](https://github.com/approvals/ApprovalTests.Java)  

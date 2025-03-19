@@ -1,4 +1,4 @@
-package ProjetRefacto;
+package ProjetRefacto.ValueObject;
 
 public class Title {
     private String title;

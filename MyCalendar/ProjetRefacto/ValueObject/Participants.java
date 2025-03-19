@@ -1,4 +1,4 @@
-package ProjetRefacto;
+package ProjetRefacto.ValueObject;
 
 public class Participants {
     private String participants;

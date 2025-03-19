@@ -2,6 +2,8 @@ package ProjetRefacto.Evenement;
 
 import ProjetRefacto.ValueObject.*;
 
+import java.time.LocalDateTime;
+
 public class EventPeriodique extends Event {
     private FrequenceJours frequenceJours;
 
@@ -16,6 +18,24 @@ public class EventPeriodique extends Event {
 
     public void setFrequenceJours(FrequenceJours frequenceJours) {
         this.frequenceJours = frequenceJours;
+    }
+
+
+    @Override
+    public boolean EventDansPeriode(LocalDateTime debut, LocalDateTime fin) {
+        LocalDateTime temp = this.dateDebut.getDateDebut();
+        while (temp.isBefore(fin)) {
+            if (!temp.isBefore(debut)) {
+                return true;
+            }
+            temp = temp.plusDays(frequenceJours.getFrequenceJours());
+        }
+        return false;
+    }
+
+    @Override
+    public boolean EventEnConflit(Event event) {
+        return false;
     }
 
     @Override

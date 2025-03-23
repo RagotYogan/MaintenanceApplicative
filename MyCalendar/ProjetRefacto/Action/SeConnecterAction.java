@@ -1,37 +1,39 @@
 package ProjetRefacto.Action;
 
 import ProjetRefacto.*;
+import ProjetRefacto.Affichage.AffichageConnexion;
 
 
 import java.util.Scanner;
 
 public class SeConnecterAction implements Action {
-    private String[] utilisateurs = new String[99];
-    private String[] motsDePasses = new String[99];
-    private int nbUtilisateurs = 0;
 
 
     public void execute(Scanner scanner, String utilisateur, CalendarManager calendar) {
         System.out.print("Nom d'utilisateur: ");
-        String nomUtilisateur = scanner.nextLine();
+        String nomUtilisateur = scanner.next();
         System.out.print("Mot de passe: ");
-        String motDePasse = scanner.nextLine();
+        String motDePasse = scanner.next();
 
-        utilisateur = authentifierUtilisateur(nomUtilisateur, motDePasse) ? nomUtilisateur : null;
+        authentifierUtilisateur(nomUtilisateur, motDePasse, calendar);
     }
 
-    private boolean authentifierUtilisateur(String nomUtilisateur, String motDePasse) {
+    private void authentifierUtilisateur(String nomUtilisateur, String motDePasse, CalendarManager calendar) {
         if ("Roger".equals(nomUtilisateur) && "Chat".equals(motDePasse)) {
-            return true;
+            System.out.println("Connexion réussie.");
+            AffichageConnexion.afficherSuccess(calendar, "Roger");
         }
-        if ("Pierre".equals(nomUtilisateur) && "KiRouhl".equals(motDePasse)) {
-            return true;
+        if ("Pierre".equals(nomUtilisateur) && "KiRouhl".equals(motDePasse)){
+            System.out.println("Connexion réussie.");
+            AffichageConnexion.afficherSuccess(calendar, "Pierre");
         }
-        for (int i = 0; i < nbUtilisateurs; i++) {
-            if (utilisateurs[i].equals(nomUtilisateur) && motsDePasses[i].equals(motDePasse)) {
-                return true;
+        for (int i = 0; i < calendar.nbUtilisateurs; i++) {
+            if (calendar.utilisateur[i].equals(nomUtilisateur) && calendar.motDePasse[i].equals(motDePasse)) {
+                System.out.println("Connexion réussie.");
+                AffichageConnexion.afficherSuccess(calendar, nomUtilisateur);
             }
         }
-        return false;
+        System.out.println("Nom d'utilisateur ou mot de passe incorrect.");
+        AffichageConnexion.afficherEchec(calendar);
     }
 }

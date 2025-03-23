@@ -47,6 +47,6 @@ public class EventReunion extends Event {
 
     @Override
     public String toString() {
-        return "Réunion : " + title + " à " + lieu + " avec " + participants;
+        return "Réunion : " + title.getTitle() + " à " + lieu.getLieu() + " avec " + participants.getParticipants();
     }
 }

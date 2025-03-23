@@ -25,6 +25,6 @@ public class EventPersonnel extends Event{
 
     @Override
     public String toString() {
-        return "RDV : " + title + " à " + dateDebut.toString();
+        return "RDV : " + title.getTitle() + " à " + dateDebut.getDateDebut().toString();
     }
 }

@@ -40,6 +40,6 @@ public class EventPeriodique extends Event {
 
     @Override
     public String toString() {
-        return "Événement périodique : " + title + " tous les " + frequenceJours + " jours";
+        return "Événement périodique : " + title.getTitle() + " tous les " + frequenceJours.getFrequenceJours() + " jours";
     }
 }

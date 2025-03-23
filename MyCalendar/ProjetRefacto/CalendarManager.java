@@ -10,6 +10,9 @@ import java.util.List;
 
 public class CalendarManager {
     public ListeEvenements events;
+    public String[] utilisateur = new String[100];
+    public String[] motDePasse = new String[100];
+    public int nbUtilisateurs = 0;
 
     public CalendarManager() {
         this.events = new ListeEvenements();
